@@ -1,0 +1,60 @@
+
+# ??tomcat???
+server:
+  error:
+    path: "/error"
+
+application:
+  title: "Single sign On"
+  version: 1.0
+  owner: "C3 Éditions"
+  developer: "Padovano"
+
+logging:
+  level:
+    org:
+      springframework:
+        security:
+          web:
+            FilterChainProxy: DEBUG
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+
+  profiles:
+    active: @spring.profiles.active@
+
+
+  servlet:
+    multipart:
+      max-file-size: 15MB
+      max-request-size: 15MB
+      enabled: true
+      file-size-threshold: 1KB
+
+  application:
+    name: "auth"
+
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    circuitbreakers:
+      enabled: true
+eureka:
+  instance:
+    appname: "AUTH"

@@ -1,0 +1,24 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.1.10/c3_management
+    username: Editions
+    password: C3editions@_21
+  mvc:
+    format:
+      date: "yyyy-MM-dd"
+      date-time: "MM/dd/yyyy HH:mm:ss"
+
+
+files.uploads: "I:/Projets_Editions"
+
+server:
+  port: 8081
+
+eureka:
+  instance:
+    instance-id: AUTH:8081
+    hostname: api.auth.local
+  client:
+    service-url:
+      defaultZone: "http://discovery.local:8081/eureka"
